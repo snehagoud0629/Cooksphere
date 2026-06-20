@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookSphere</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+<!-- SPLASH -->
+<div id="splash">Welcome to CookSphere 🍽️</div>
+
+<!-- SETTINGS BUTTON (left corner) -->
+<div class="settings-fab" onclick="openSettings()" title="Settings">⚙️</div>
+
+<!-- SETTINGS OVERLAY + PANEL -->
+<div class="settings-overlay" id="settingsOverlay" onclick="closeSettings()"></div>
+<div class="settings-panel" id="settingsPanel">
+    <span class="settings-close" onclick="closeSettings()">✕</span>
+    <h2>Settings</h2>
+
+    <div class="settings-section">
+        <h3>Theme</h3>
+        <div class="theme-toggle">
+            <button id="themeLightBtn" class="theme-btn" onclick="setTheme('light')">☀️ Light</button>
+            <button id="themeDarkBtn" class="theme-btn" onclick="setTheme('dark')">🌙 Dark</button>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <h3>Account</h3>
+        <div id="accountBox"></div>
+    </div>
+
+    <div class="settings-section">
+        <h3>Wishlist</h3>
+        <button class="settings-danger-btn" onclick="clearWishlistData()">Clear Wishlist</button>
+    </div>
+
+    <div class="settings-section">
+        <h3>About</h3>
+        <p class="settings-about">CookSphere v1.0 — your recipe explorer.<br>Theme and account preferences are saved on this device only.</p>
+    </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">𝓒𝓸𝓸𝓴𝓢𝓹𝓱𝓮𝓻𝓮🍲</div>
+
+    <input id="search" class="search-box" placeholder="Search food">
+
+    <select onchange="setFilter(this.value)">
+        <option value="all">Filter</option>
+        <option value="veg">Veg</option>
+        <option value="nonveg">Non-Veg</option>
+        <option value="pureveg">Pure Veg</option>
+    </select>
+
+    <select onchange="setCategory(this.value)">
+        <option value="all">Category</option>
+        <option value="Italian">Italian Food</option>
+        <option value="Chinese">Chinese Food</option>
+        <option value="Indian">Indian Food</option>
+        <option value="Mexican">Mexican Food</option>
+        <option value="Punjabi">Punjabi Food</option>
+        <option value="Pakistani">Pakistani Food</option>
+        <option value="French">French Food</option>
+    </select>
+
+    <div class="wishlist-btn" onclick="openWishlist()">❤ Wishlist</div>
+</div>
+
+<!-- HOME GRID -->
+<div id="home" class="grid"></div>
+
+<!-- WISHLIST PAGE -->
+<div id="wishlistPage" style="display:none"></div>
+
+<!-- RECIPE PAGE -->
+<div id="recipePage" style="display:none"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
